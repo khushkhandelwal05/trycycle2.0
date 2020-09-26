@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul class="nav justify-content-center">
+        <li class="">
+          <a class="nav-link active nav-brand" href="{% url 'basicapp:index' %}">HOME</a>
+        </li>
+        {% if user.is_authenticated %}
+            <li class="nav-item">Hello, {{user.first_name}}</li>
+            <li class="nav-link"><a href="logout">Logout</a></li>
+            {% endif %}
+      </ul>
+      <form action="farecal" class="form-group jumbotron" method="POST">
+          {% csrf_token %}
+      <select class="form-control form-control-lg" name='startpth'>
+        <option>Main Building</option>
+        <option>SMV</option>
+        <option>Technology Tower</option>
+        <option>SJT</option>
+        <option>Men's Hostel</option>
+        <option>Health Center</option>
+      </select>
+      <select class="form-control form-control-lg" name='endpth'>
+        <option>Main Building</option>
+        <option>SMV</option>
+        <option>Technology Tower</option>
+        <option>SJT</option>
+        <option>Men's Hostel</option>
+        <option>Health Center</option>
+      </select>
+      <input type="submit" value="SUBMIT">
+    </form>
+    <div class="alert alert-success" role="alert">
+        <h2>{{ fare_tot }}</h2>
+    </div>
+    
+</body>
+</html>

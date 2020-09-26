@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>TryCycle</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width ,initial-scale=1"> 
+    <!--css-->
+    <link rel="stylesheet" tyle="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <!--fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+    
+</head>
+<body>
+    <!--header-->
+    <header class="header" id="HOME">
+        
+        <!--Nav bar-->
+        <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="TryCycle-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      </div>
+            
+            
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="TryCycle-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+            <li><a href="#HOME" class="nav-item">HOME</a></li>
+            {% if user.is_authenticated %}
+            <li class="nav-item" id="userin">Hello, {{user.first_name}}</li>
+            <li class="nav-link"><a href="logout">Logout</a></li>
+            <li><a href="#RENT" class="nav-item" id="rent">RENT-NOW</a></li>
+            <li class="nav-link"><a href="mybookings">My Bookings</a></li>
+            {% else %}
+            <li><a href="#SIGN" class="nav-item" id="Sign">SIGN IN</a></li>
+            <li><a href="#up" class="nav-item" id="up">SIGN UP</a></li>
+            {% endif %}
+            <li><a href="#ABOUT-US" class="nav-item">ABOUT US</a></li>
+            <li><a href="#FEATURES" class="nav-item">FEATURES</a></li>
+            <li><a href="#CHECKPOINTS" class="nav-item">CHECKPOINTS</a></li>
+            <li><a href="#CONTACT-US" class="nav-item">CONTACT</a></li>
+            <li><a href="fare" class="nav-item">CAL FARE</a></li>
+
+          </ul>
+      </div> <!--navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+        
+        
+        
+        
+        
+        
+        
+        <div class="header-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="logo text-center" style="padding-top: 90px;">
+                            <img src="{% static 'images/logo.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="header-text">
+                    <h2>Rent, Ride and Travel</h2>
+                    <p>Made with love for vitians :)</p>
+                    </div>
+                <div class="buttons">
+                    {% if user.is_authenticated %}
+                    <a class="btn btn-download" href="#ABOUT-US">Take a tour<i class="fas fa-download"></i></a> 
+                    {% else %}
+                    <a class="btn btn-download" style="margin-right:20px;" id="sign2">SIGN IN</a>
+                    <a class="btn btn-download" href="#ABOUT-US">Take a tour<i class="fas fa-download"></i></a> 
+                    {% endif %}
+                     
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="image-iphone" style="margin-left: 50px;"></div>
+                    <img src="{% static 'images/header.jpg' %}">
+              </div>
+            </div>  
+            </div>
+    </div>
+</header>
+
+    <!-- about us --->
+    <section class="about" id="ABOUT-US">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="section-title">
+                        <h2>about us</h2>
+                        <p>We bring before you a healthy way to travel , so even if you wake up late for a class, you can rely
+                        on us to get there in time</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="choose-us-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about-us-video">
+                            <div class="pic">
+                            <img src="{% static 'images/-a010-markuss-0428.jpg' %}">
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="choose-us-title">
+                            <h2>Why choose us</h2>
+                            <p>We will provide you with all the amnities you need, 
+                                we are determined to bring to you an hassle free experience</p>
+                        </div>
+                        <div class="choose-us-dis">
+                            <div class="choose-us-item">
+                                <div><i class="fas fa-bicycle"></i></div>
+                                <h3>Better travel solution</h3>
+                                <p>Existing travel facility,i.e shuttle is expensive and is usually crowded,
+                                    we use a special algorithm to compute the cost</p>
+                            </div>
+                            <div class="choose-us-item">
+                                <div><i class="fas fa-tree"></i></div>
+                                <h3>Save enviornment</h3>
+                                <p>Existing travel facility,i.e shuttle is expensive and is usually crowded,
+                                    we use a special algorithm to compute the cost</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- testimonial-->
+    <div class="testimonial">
+        <div class="testimonial-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-1">
+                        <img src="{% static 'images/nams.jpg' %}" style="border:2px solid black;border-radius:50%;">
+                        <h2 style="padding-left:35px;font-size: 40px;color:darkseagreen;font-weight: 600;">Namrata</h2>
+                    </div>
+                    <div class="col-md-2 col-md-offset-2">
+                        <img src="{% static 'images/khush.png' %}" style="border:2px solid black;border-radius:50%;">
+                        <h2 style="padding-left:45px;font-size: 40px;color:darkseagreen;font-weight: 600;">Khush</h2>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="design"><span style="color: white;">Software engineers,</span><span style="color:darkseagreen;"> Founders at TryCycle </span></div> 
+                    </div>
+                
+                </div>
+            
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="vision">
+                         <p>"This idea was all focused to bring effective solution, and i personally have been late to many classes,
+                                                so this could be a really effective solution"</p>
+                        <br>
+                            <p style="padding-bottom: 10px;color: darkseagreen;">"This idea is totally technology centric with using smart algorithms, if i were to sum up, it is just click, book, rent and ride!"</p>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    
+    </div>
+      
+    
+    <!-- features-->
+    <section class="features" id="FEATURES">
+                <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="section-title">
+                        <h2>Features</h2>
+                        <p>We present before you all the amnities we will be providing
+                        you!!</p>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                        <div class="col-md-4" style="padding:0px;">
+                            <div class="one">
+                    <div class="left-features">
+                            <div class="left-icon"><i class="fas fa-piggy-bank"></i></div>
+                            <h3>economical</h3>
+                            <p>We use a special algorithm, to compute cost which is far more less than the shuttle pricing, existing nowdays</p>
+                        </div>
+                                </div>
+                <div class="left-features">
+                            <div class="left-icon"><i class="fas fa-leaf"></i></div>
+                            <h3>eco-friendly</h3>
+                            <p>This plan will also contribute to the betterment of the environment becaue The Earth is what we all have in common</p>
+                        </div>
+                <div class="left-features">
+                            <div class="left-icon"><i class="fas fa-heart"></i></div>
+                            <h3>healthy</h3>
+                            <p>Sitting infront of laptops and barely doing any physical excercise, it will also help build your health</p>
+                        </div>
+                </div>
+                <div class="col-md-4" style="padding-left: 80px;padding-top: 150px;font-size: 90px;">
+                    <a href="https://www.animatedimages.org/cat-bicycles-237.htm"><img src="https://www.animatedimages.org/data/media/237/animated-bicycle-image-0007.gif" border="0" alt="animated-bicycle-image-0007" /hspace="35;"></a>
+                </div>
+            
+               
+                <div class="col-md-4" style="padding: 0px;">
+                    <div class="right-features">
+                        <div class="right-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>instant booking</h3>
+                        <p>All you need to do is visit our website, login and rent a bicycle and within minutes you are ready</p>
+                    
+                    </div>
+                    <div class="right-features">
+                        <div class="right-icon"><i class="fas fa-location-arrow"></i></div>
+                        <h3>checkpoints</h3>
+                        <p>We know how widespread our campus is, so to keep up we have made few places our pickup and drop points</p>
+                    
+                    </div>
+                    <div class="right-features">
+                        <div class="right-icon"><i class="fas fa-clock"></i></div>
+                        <h3>flexible timings</h3>
+                        <p>Worry not if your FFCS went wrong,you will always be provided with a bicycle</p>
+                    
+                    </div>
+                
+                
+                </div>
+            
+            </div>
+        </div>
+    
+    
+    </section>
+             
+         
+   <!--checkpoints-->  
+    <section class="checkoints" id="CHECKPOINTS">
+        <div class="checkpoint-overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="section-title">
+                        <h2>Checkpoints</h2>
+                        <p>All the checkpoints were you can pickup and drop the cycle at!
+                            many more coming!!</p>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pics">
+        <div class="contaier">
+            <div class="row">
+            <div class="col-md-12">
+                    <div class="row">
+                        <a href="#">
+                            <div class="col-md-4">
+                                <div class="available-on-item">
+                                    <img src="{% static 'images/mgbr.png' %}">
+                                    <div class="available-on-inner">
+                                        <h2>Main Building</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#">
+                            <div class="col-md-4 no-padding">
+                                <div class="available-on-item">
+                                    <img src="{% static 'images/smv.png' %}">
+                        
+                                    <div class="available-on-inner">
+                                        <h2>SMV</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#">
+                            <div class="col-md-4 no-padding">
+                                <div class="available-on-item">
+                                    <img src="{% static 'images/tt.png' %}">
+                                    <div class="available-on-inner">
+                                        <h2>Technology Tower</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+        </div>
+            </div>
+            </div>
+            
+            
+            
+            
+            <div class="pics">
+        <div class="contaier">
+            <div class="row">
+            <div class="col-md-12">
+                    <div class="row">
+                        <a href="#">
+                            <div class="col-md-4">
+                                <div class="available-on-item">
+                                    <img src="{% static 'images/sjt.png' %}">
+                                    <div class="available-on-inner">
+                                        <h2>SJT</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#">
+                            <div class="col-md-4 no-padding">
+                                <div class="available-on-item">
+                                    <img src="{% static 'images/boys%20hostel.png' %}">
+                                    <div class="available-on-inner">
+                                        <h2>Men's Hostel</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#">
+                            <div class="col-md-4 no-padding">
+                                <div class="available-on-item">
+                                    <img src="{% static 'images/chettinad.png' %}">
+                                    <div class="available-on-inner">
+                                        <h2>Health Center</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+        </div>
+            </div>
+            </div>
+        </div>
+        
+    
+    
+    
+    
+    </section>
+    
+    <!--contact-us-->
+    <section class="contact-us" id="CONTACT-US">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-19 col-md-offeset-2">
+                    <div class="section-title">
+                        <h2 style="margin-left: 20px;">Contact Us</h2>
+                        <p style="padding-left: 50px;margin-bottom: 30px;">If you have any opinions you want to share with us, we are all ear,send us a message and we will be really delighted!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <form  action="contact" method="POST">
+                {% csrf_token %}
+        <div class="contact-us-form">
+            <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+                            <input type="email" class="form-control" id="email" placeholder="E-mail" name="email">
+                            <input type="text" class="form-control"  id="subject" placeholder="Subject" name="subject">
+                        </div>
+                        <div class="col-md-8">
+                            <textarea class="form-control" id="message" rows="13" cols="10" placeholder="Message Text..." name="feed"></textarea>
+                            <input type="submit" value="submit" class="btn btn-success">
+                        </div>
+                    
+                    </div>
+                </form>
+            
+            </div>
+        </div>
+    </section>
+    
+    <!--footer-->
+    <footer>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="colmn-footer">
+              <p>copyright &copy;Namrata & Khush</p>
+                <p>Ph no :8467822560</p>
+                <p>Email :TryCycle@gmail.com</p>
+                <a href="#HOME"><i class="fas fa-arrow-alt-circle-up" style="font-size:50px;color: darkseagreen;"></i></a>
+            </div>
+            </div>
+            </div>
+        </div>
+    </footer>
+                
+                
+    
+<!--sign in section-->
+    <div class="bg-modal">
+        <div class="modal-content">
+            <div class="close">+</div>
+            <img src="{% static 'images/avatar.jpg' %}" class="rounded">
+    <form action="login" method="POST">
+        {% csrf_token %}
+    <input type="text" placeholder="Username" class="form-control" name='username'>
+    <input type="password" placeholder="Password" class="form-control" name='password'>
+    <input type="submit" value="Submit" class="btn btn-success">
+    </form>
+</div>
+
+    </div>
+    
+<!--sign up section-->
+    <div class="bg-modal-2">
+        <div class="modal-content-2">
+            <div class="close-2">+</div>
+            <form action="register" method="POST">
+                {% csrf_token %}
+            <img src="{% static 'images/avatar.jpg' %}" class="rounded">
+            <input type="text" placeholder="Username" class="form-control" name="username">
+            <input type="text" placeholder="First Name" class="form-control" name="first_name">
+            <input type="text" placeholder="Last Name" class="form-control" name="last_name">
+            <input type="text"placeholder="Phone no." class="form-control" name="phone_no">
+            <input type="text" placeholder="Block & room no." class="form-control" name="room_no">
+          <input type="text" placeholder="Reg. no" class="form-control" name="reg_no">
+          <input type="e-mail" placeholder="E-mail" class="form-control" name="email">
+           <input type="password" placeholder="Password" class="form-control" name="password1">
+            <input type="password" placeholder="confirm-password" class="form-control" name="password2">
+            <input type="submit" value="Submit" class="btn btn-success">
+            </form>
+        </div>
+    </div>
+    
+    {% if user.is_authenticated %}    
+<!--Rent-now-->
+    <div class="bg-modal-3">
+        <div class="modal-content-3">
+            <div class="close-3">+</div>
+            <form action="rent_now" method="POST">
+                {% csrf_token %}
+            <img src="{% static 'images/avatar.jpg' %}" class="rounded">
+            <input type="date" placeholder="dd/mm/yr" class="form-control" name="date" >
+            <select class="form-control" name='check'>
+                <option disabled>Select starting Point</option>
+                <option>Main Building</option>
+                <option>SMV</option>
+                <option>Technology Tower</option>
+                <option>SJT</option>
+                <option>Men's Hostel</option>
+                <option>Health Center</option>
+              </select>
+              <br>
+              <select class="form-control" name='end'>
+                <option disabled>Select end Point</option>
+                <option>Main Building</option>
+                <option>SMV</option>
+                <option>Technology Tower</option>
+                <option>SJT</option>
+                <option>Men's Hostel</option>
+                <option>Health Center</option>
+              </select>
+            <p>Time cannot be more than 20 mins</p>
+          <input type="time" placeholder="pickup hrs:min" class="form-control" name="cht">
+            <input type="submit" value="Submit" class="btn btn-success" class="form-control">
+            </form>
+        </div>
+    </div>
+    {% endif %}
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+        //sign in
+    document.getElementById('Sign').addEventListener('click',
+     function() { 
+    document.querySelector('.bg-modal').style.display ='flex'; 
+     })
+         document.getElementById('sign2').addEventListener('click',
+     function() { 
+    document.querySelector('.bg-modal').style.display ='flex'; 
+     })
+    document.querySelector('.close').addEventListener('click', function(){
+        document.querySelector('.bg-modal').style.display ='none';
+    })
+        
+        
+        //sign up
+        document.getElementById('up').addEventListener('click',
+     function() { 
+    document.querySelector('.bg-modal-2').style.display ='flex'; 
+     })
+        document.querySelector('.close-2').addEventListener('click', function(){
+        document.querySelector('.bg-modal-2').style.display ='none';
+    })
+</script>
+{% if user.is_authenticated %}
+<script>
+    
+        
+        //rent
+            document.getElementById('rent').addEventListener('click',
+     function() { 
+    document.querySelector('.bg-modal-3').style.display ='flex'; 
+     })
+        document.querySelector('.close-3').addEventListener('click', function(){
+        document.querySelector('.bg-modal-3').style.display ='none';
+    })
+
+        
+    </script>
+    {% endif %}
+    
+    <script
+    
+    
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    
+</body>
+</html>
